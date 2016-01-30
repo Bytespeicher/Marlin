@@ -18,8 +18,8 @@
  * Thermal Protection parameters
  */
 #if ENABLED(THERMAL_PROTECTION_HOTENDS)
-  #define THERMAL_PROTECTION_PERIOD 40        // Seconds
-  #define THERMAL_PROTECTION_HYSTERESIS 4     // Degrees Celsius
+  #define THERMAL_PROTECTION_PERIOD 30        // Seconds
+  #define THERMAL_PROTECTION_HYSTERESIS 5     // Degrees Celsius
 
   /**
    * Whenever an M104 or M109 increases the target temperature the firmware will wait for the
@@ -27,8 +27,8 @@
    * degrees, the machine is halted, requiring a hard reset. This test restarts with any M104/M109,
    * but only if the current temperature is far enough below the target for a reliable test.
    */
-  #define WATCH_TEMP_PERIOD 16                // Seconds
-  #define WATCH_TEMP_INCREASE 4               // Degrees Celsius
+//  #define WATCH_TEMP_PERIOD 25                // Seconds
+//  #define WATCH_TEMP_INCREASE 4               // Degrees Celsius
 #endif
 
 #if ENABLED(THERMAL_PROTECTION_BED)
@@ -41,7 +41,7 @@
   // if Kc is chosen well, the additional required power due to increased melting should be compensated.
   #define PID_ADD_EXTRUSION_RATE
   #if ENABLED(PID_ADD_EXTRUSION_RATE)
-    #define DEFAULT_Kc (100) //heating power=Kc*(e_speed)
+    #define DEFAULT_Kc (1) //heating power=Kc*(e_speed) (default:100)
     #define LPQ_MAX_LEN 50
   #endif
 #endif
@@ -212,7 +212,7 @@
 //homing hits the endstop, then retracts by this distance, before it tries to slowly bump again:
 #define X_HOME_BUMP_MM 5
 #define Y_HOME_BUMP_MM 5
-#define Z_HOME_BUMP_MM 2
+#define Z_HOME_BUMP_MM 1
 #define HOMING_BUMP_DIVISOR {2, 2, 4}  // Re-Bump Speed Divisor (Divides the Homing Feedrate)
 //#define QUICK_HOME  //if this is defined, if both x and y are to be homed, a diagonal move will be performed initially.
 
